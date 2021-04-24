@@ -1,4 +1,4 @@
-import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { InferGetStaticPropsType } from 'next';
 import { IArticle } from '../../types';
 
 export type Props = {
@@ -22,7 +22,7 @@ export default function Articles({
       <div>
         {articles &&
           articles.map((article) => (
-            <h3>
+            <h3 key={article.slug}>
               <a href={`/articles/${article.slug}`}>{article.title}</a>
             </h3>
           ))}

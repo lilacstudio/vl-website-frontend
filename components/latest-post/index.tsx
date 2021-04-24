@@ -1,0 +1,1 @@
+export { LatestPost } from './main';

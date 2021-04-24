@@ -117,19 +117,30 @@ export default function Home({
             backgroundColor: '#f5f5f5',
           }}
         >
-          {articles &&
-            articles.slice(0, 3).map((article) => (
-              <h3 key={article.id}>
-                <LatestPost
-                  key={article.slug}
-                  title={article.title}
-                  author={article.author}
-                  description={article.description}
-                  image={article.image}
-                  publishedAt={article.publishedAt}
-                />
-              </h3>
-            ))}
+          <div
+            className={css({
+              display: 'flex',
+              flexWrap: 'wrap',
+              flexBasis: '200px',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+            })}
+          >
+            {articles &&
+              articles
+                .slice(0, 3)
+                .map((article) => (
+                  <LatestPost
+                    key={article.id}
+                    title={article.title}
+                    author={article.author}
+                    description={article.description}
+                    image={article.image}
+                    publishedAt={article.publishedAt}
+                    slug={article.slug}
+                  />
+                ))}
+          </div>
         </InfoSection>
       </Main>
     </div>

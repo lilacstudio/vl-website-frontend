@@ -34,7 +34,6 @@ export default function InfoSection({
             fontSize: '16px',
             fontWeight: 400,
             lineHeight: '1.5em',
-            textAlign: 'center',
             color: '#777',
           })}
         >
@@ -51,7 +50,6 @@ export default function InfoSection({
       className={css({
         paddingLeft: '24px',
         paddingRight: '24px',
-        textAlign: 'center',
         width: '100%',
         ...customStyles,
       })}
@@ -69,6 +67,7 @@ export default function InfoSection({
           letterSpacing: '3px',
           margin: 0,
           textTransform: 'uppercase',
+          textAlign: 'center',
         })}
       >
         {title}
@@ -91,6 +90,7 @@ export default function InfoSection({
           fontWeight: 400,
           lineHeight: 1.5,
           margin: 0,
+          textAlign: 'center',
         })}
       >
         {caption}
@@ -101,17 +101,19 @@ export default function InfoSection({
           <a
             className={css({
               border: '2px solid black',
-              padding: '0 14px',
-              textDecoration: 'none',
               color: 'black',
-              fontFamily: 'Raleway, sans-serif',
-              lineHeight: '45px',
-              height: '45px',
-              textTransform: 'uppercase',
-              fontWeight: 700,
-              fontSize: '13px',
               display: 'inline-block',
+              fontFamily: 'Raleway, sans-serif',
+              fontSize: '13px',
+              fontWeight: 700,
+              height: '45px',
               letterSpacing: '1px',
+              lineHeight: '45px',
+              margin: '0 auto',
+              padding: '0 14px',
+              textAlign: 'center',
+              textDecoration: 'none',
+              textTransform: 'uppercase',
             })}
           >
             Find out more

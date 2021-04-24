@@ -2,15 +2,20 @@ import { styled } from 'styletron-react';
 
 export type Props = {
   $transparent?: boolean;
-  $large?: boolean;
+  $small?: boolean;
+  $left?: boolean;
+  $right?: boolean;
 };
 
-export const Separator = styled('div', (props: Props) => ({
-  marginTop: '10px',
-  marginBottom: '35px',
-  marginLeft: 'auto',
-  marginRight: 'auto',
-  backgroundColor: '#303030',
-  height: props.$transparent ? 0 : '2px',
-  width: '50px',
-}));
+export const Separator = styled(
+  'div',
+  ({ $transparent, $small, $left, $right }: Props) => ({
+    marginTop: '10px',
+    marginBottom: '35px',
+    marginLeft: $left ? 0 : 'auto',
+    marginRight: $right ? 0 : 'auto',
+    backgroundColor: '#303030',
+    height: $transparent ? 0 : '2px',
+    width: $small ? '25px' : '50px',
+  }),
+);

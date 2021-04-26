@@ -1,12 +1,12 @@
 import React from 'react';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
-import Link from 'next/link';
 import Head from 'next/head';
-import { styled, useStyletron } from 'styletron-react';
-import InfoSection from '../components/info-section';
+import { InfoSection } from '../components/info-section';
 import { Header } from '../components/header';
-import { LatestPost } from '../components/latest-post';
 import { IArticle } from '../types';
+import { ArticleList } from '../components/article-list';
+import { Hero } from '../components/hero';
+import { styled } from 'styletron-react';
 
 const Main = styled('main', {
   display: 'flex',
@@ -14,28 +14,9 @@ const Main = styled('main', {
   alignItems: 'flex-start',
 });
 
-const Hero = styled('div', {
-  alignItems: 'center',
-  backgroundBlendMode: 'darken',
-  backgroundColor: 'rgba(0,0,0,0.5)',
-  backgroundImage: 'url(/images/vegan-lebanese-street-food-bondi-store.jpg)',
-  backgroundPositionX: '50%',
-  backgroundPositionY: '0px',
-  backgroundRepeat: 'no-repeat',
-  backgroundSize: 'cover',
-  color: 'white',
-  display: 'flex',
-  flexDirection: 'column',
-  fontFamily: 'Raleway, sans-serif',
-  height: '560px',
-  justifyContent: 'center',
-  marginBottom: '50px',
-});
-
 export default function Home({
   articles,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
-  const [css] = useStyletron();
   return (
     <div>
       <Head>
@@ -49,39 +30,7 @@ export default function Home({
       </Head>
 
       <Header />
-      <Hero>
-        <div>
-          <h4>
-            <span
-              className={css({
-                fontFamily: "'Playfair Display'",
-                fontStyle: 'italic',
-                fontSize: '28px',
-                fontWeight: 400,
-              })}
-            >
-              plant-based
-            </span>
-          </h4>
-        </div>
-        <div>
-          <h4>
-            <span
-              className={css({
-                border: '3px solid white',
-                padding: '8px 18px',
-                display: 'inline-block',
-                fontSize: '28px',
-                fontWeight: 600,
-                letterSpacing: '22px',
-                textTransform: 'uppercase',
-              })}
-            >
-              Lebanese
-            </span>
-          </h4>
-        </div>
-      </Hero>
+      <Hero />
       <Main>
         <InfoSection
           title="About Us"
@@ -112,35 +61,12 @@ export default function Home({
         />
         <InfoSection
           title="Latest News"
-          caption="Keep up to date with our new and articles on all things health"
+          caption="Keep up to date with our news and articles on all things health"
           customStyles={{
             backgroundColor: '#f5f5f5',
           }}
         >
-          <div
-            className={css({
-              display: 'flex',
-              flexWrap: 'wrap',
-              flexBasis: '200px',
-              alignItems: 'center',
-              justifyContent: 'space-between',
-            })}
-          >
-            {articles &&
-              articles
-                .slice(0, 3)
-                .map((article) => (
-                  <LatestPost
-                    key={article.id}
-                    title={article.title}
-                    author={article.author}
-                    description={article.description}
-                    image={article.image}
-                    publishedAt={article.publishedAt}
-                    slug={article.slug}
-                  />
-                ))}
-          </div>
+          <ArticleList articles={articles} />
         </InfoSection>
       </Main>
     </div>

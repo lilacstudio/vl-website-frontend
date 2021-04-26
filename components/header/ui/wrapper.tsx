@@ -1,8 +1,12 @@
 import { styled } from 'styletron-react';
 
-export const Wrapper = styled('header', {
+export const Wrapper = styled('nav', {
   width: '100%',
   display: 'flex',
   flexDirection: 'column',
-  justifyContent: 'flex-start',
+  padding: '20px 20px',
+  position: 'sticky',
+  top: 0,
+  backgroundColor: 'white',
+  zIndex: 100,
 });

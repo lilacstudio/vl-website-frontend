@@ -12,7 +12,6 @@ import {
   PublishedDate,
   TextWrapper,
   Title,
-  TitleText,
   Wrapper,
 } from './ui';
 
@@ -21,7 +20,7 @@ export type Props = Pick<
   'author' | 'publishedAt' | 'description' | 'title' | 'image' | 'slug'
 >;
 
-export function LatestPost({
+export function LatestArticle({
   title,
   author,
   description,

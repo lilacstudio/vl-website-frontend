@@ -4,7 +4,7 @@ import { MenuButton, MenuList } from './menu';
 import { Logo } from './ui/logo';
 import { Wrapper } from './ui/wrapper';
 
-export function Header() {
+export function SiteHeader() {
   const [menuIsVisible, setMenuIsVisible] = useState(false);
   const [css] = useStyletron();
 

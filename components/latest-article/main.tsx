@@ -34,7 +34,7 @@ export function LatestArticle({
     <Wrapper>
       {articleImage && (
         <div>
-          <Link href={`/${slug}`}>
+          <Link href={`/articles/${slug}`}>
             <a>
               <Image
                 src={`${process.env.NEXT_PUBLIC_API_HOST}${articleImage.url}`}

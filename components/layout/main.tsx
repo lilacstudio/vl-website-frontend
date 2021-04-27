@@ -1,16 +1,23 @@
 import Head from 'next/head';
 import React, { FunctionComponent, ReactNode } from 'react';
+import { StyleObject } from 'styletron-standard';
+import { SiteFooter } from '../site-footer';
 import { SiteHeader } from '../site-header';
 import { Wrapper, Inner, PageHeader, PageTitle } from './ui';
 
 export type Props = {
   pageTitle: string;
   children?: ReactNode;
+  overrides?: StyleObject;
 };
 
-export const Layout: FunctionComponent<Props> = ({ pageTitle, children }) => {
+export const Layout: FunctionComponent<Props> = ({
+  pageTitle,
+  overrides,
+  children,
+}) => {
   return (
-    <Wrapper>
+    <Wrapper $style={overrides}>
       <Head>
         <title>Create Next App</title>
         <link rel="icon" href="/favicon.ico" />
@@ -25,6 +32,7 @@ export const Layout: FunctionComponent<Props> = ({ pageTitle, children }) => {
         <PageTitle>{pageTitle}</PageTitle>
       </PageHeader>
       <Inner>{children}</Inner>
+      <SiteFooter />
     </Wrapper>
   );
 };

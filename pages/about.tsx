@@ -6,10 +6,9 @@ import { Separator } from '../components/separator';
 export default function AboutUs() {
   return (
     <Layout pageTitle="About">
-      <Separator $transparent />
       <H1>A little about us</H1>
       <Separator />
-      <H4>
+      <H4 $center>
         Vegan Lebanese Street Food has arrived and it’s set to re-define ‘fast
         food’ as it stands today by making fresh, healthy and environmentally
         responsible plant-based food available to everyone — 365 days a year.

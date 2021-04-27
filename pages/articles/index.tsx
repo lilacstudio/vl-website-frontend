@@ -1,4 +1,6 @@
 import { InferGetStaticPropsType } from 'next';
+import { ArticleList } from '../../components/article-list';
+import { Layout } from '../../components/layout';
 import { IArticle } from '../../types';
 
 export type Props = {
@@ -17,16 +19,8 @@ export default function Articles({
   articles,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div>
-      <h1>All Articles</h1>
-      <div>
-        {articles &&
-          articles.map((article) => (
-            <h3 key={article.slug}>
-              <a href={`/articles/${article.slug}`}>{article.title}</a>
-            </h3>
-          ))}
-      </div>
-    </div>
+    <Layout pageTitle={'Blog'} overrides={{ backgroundColor: '#f5f5f5' }}>
+      <ArticleList articles={articles} />
+    </Layout>
   );
 }

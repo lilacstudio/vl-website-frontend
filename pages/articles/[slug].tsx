@@ -1,5 +1,7 @@
 import { InferGetStaticPropsType } from 'next';
 import ReactMarkdown from 'react-markdown';
+import { A, H1, P } from '../../components/atoms';
+import { Layout } from '../../components/layout';
 import { IArticle } from '../../types';
 
 export const getStaticPaths = async () => {
@@ -35,15 +37,20 @@ export default function Article({
   article,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   if (!article) {
-    return <div>Article not found</div>;
+    return <P>Article not found</P>;
   }
 
   return (
-    <div>
-      <h3>{article.title}</h3>
-      <div>
-        <ReactMarkdown escapeHtml={false} source={article.content} />
-      </div>
-    </div>
+    <Layout pageTitle={article.title}>
+      <ReactMarkdown
+        skipHtml
+        children={article.content}
+        components={{
+          h1: 'h2',
+          p: P,
+          a: A,
+        }}
+      />
+    </Layout>
   );
 }

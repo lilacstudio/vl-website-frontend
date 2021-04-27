@@ -79,7 +79,7 @@ export default function Home({
             backgroundColor: '#f5f5f5',
           }}
         >
-          <ArticleList articles={articles} />
+          <ArticleList articles={articles.slice(0, 4)} />
         </InfoSection>
       </Main>
     </div>

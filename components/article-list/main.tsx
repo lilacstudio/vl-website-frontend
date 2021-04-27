@@ -11,19 +11,17 @@ export const ArticleList = ({ articles }: Props) => {
     if (!articles || articles.length === 0) {
       return <p>No articles were found. Check back soon!</p>;
     }
-    return articles
-      .slice(0, 4)
-      .map((article) => (
-        <LatestArticle
-          key={article.id}
-          title={article.title}
-          author={article.author}
-          description={article.description}
-          image={article.image}
-          publishedAt={article.publishedAt}
-          slug={article.slug}
-        />
-      ));
+    return articles.map((article) => (
+      <LatestArticle
+        key={article.id}
+        title={article.title}
+        author={article.author}
+        description={article.description}
+        image={article.image}
+        publishedAt={article.publishedAt}
+        slug={article.slug}
+      />
+    ));
   }
   return <Wrapper>{renderArticles(articles)}</Wrapper>;
 };

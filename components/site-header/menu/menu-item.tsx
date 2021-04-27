@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import { FunctionComponent } from 'react';
 import { useStyletron } from 'styletron-react';
 
 export interface IMenuItem {
@@ -8,7 +9,7 @@ export interface IMenuItem {
 
 export type Props = IMenuItem;
 
-export const MenuItem = ({ title, url }: Props) => {
+export const MenuItem: FunctionComponent<Props> = ({ title, url }) => {
   const [css] = useStyletron();
   return (
     <li

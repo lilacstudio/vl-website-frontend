@@ -1,3 +1,4 @@
+import { FunctionComponent } from 'react';
 import { useStyletron } from 'styletron-react';
 import { MenuItem, IMenuItem } from './menu-item';
 
@@ -6,18 +7,22 @@ export type Props = {
   isVisible?: boolean;
 };
 
-export const MenuList = ({ menuItems, isVisible }) => {
+export const MenuList: FunctionComponent<Props> = ({
+  menuItems,
+  isVisible,
+}) => {
   const [css] = useStyletron();
-  return menuItems.map((item, i) => (
+  return (
     <nav
-      key={i}
       className={css({
         maxHeight: isVisible ? '80vh' : 0,
         overflow: 'hidden',
         transition: 'max-height .5s ease',
       })}
     >
-      <MenuItem {...item} />
+      {menuItems.map((item, i) => (
+        <MenuItem key={i} {...item} />
+      ))}
     </nav>
-  ));
+  );
 };

@@ -361,3 +361,7 @@ body {
   -moz-ox-font-smoothing: auto;
   font-smooth: auto;
 }
+
+body {
+  width: 100%;
+}

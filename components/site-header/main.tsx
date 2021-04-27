@@ -20,6 +20,7 @@ export function SiteHeader() {
           isVisible={menuIsVisible}
           menuItems={[
             { title: 'Home', url: '/' },
+            { title: 'Blog', url: '/articles' },
             {
               title: 'Bondi Menu',
               url: 'https://vegan-lebanese-bondi-beach.square.site/',

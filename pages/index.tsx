@@ -12,6 +12,8 @@ const Main = styled('main', {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
+  maxWidth: '1080px',
+  margin: '0 auto',
 });
 
 export default function Home({

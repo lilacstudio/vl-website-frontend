@@ -6,7 +6,7 @@ import { SiteHeader } from '../site-header';
 import { Wrapper, Inner, PageHeader, PageTitle } from './ui';
 
 export type Props = {
-  pageTitle: string;
+  pageTitle?: string;
   children?: ReactNode;
   overrides?: StyleObject;
 };
@@ -28,9 +28,11 @@ export const Layout: FunctionComponent<Props> = ({
         />
       </Head>
       <SiteHeader />
-      <PageHeader>
-        <PageTitle>{pageTitle}</PageTitle>
-      </PageHeader>
+      {pageTitle && (
+        <PageHeader>
+          <PageTitle>{pageTitle}</PageTitle>
+        </PageHeader>
+      )}
       <Inner>{children}</Inner>
       <SiteFooter />
     </Wrapper>

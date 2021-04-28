@@ -17,7 +17,7 @@ class MyDocument extends Document {
       ...context,
       renderPage,
     });
-    // @ts-expect-error getStylesheets DOES exist on Server
+    // @ts-ignore
     const stylesheets = styletron.getStylesheets() || [];
     return { ...initialProps, stylesheets };
   }

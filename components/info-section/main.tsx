@@ -55,9 +55,7 @@ export function InfoSection({
       })}
     >
       <Separator $transparent />
-      {imgUrl && (
-        <Image src={imgUrl} layout="responsive" width={1280} height={851} />
-      )}
+      {imgUrl && <img src={imgUrl} className={css({ width: '100%' })} />}
       <Separator $transparent />
       <h2
         className={css({

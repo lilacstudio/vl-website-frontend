@@ -62,7 +62,8 @@ export const AuthorName = styled('span', {
   fontSize: '12px',
   fontFamily: 'Raleway, sans-serif',
   color: '#303030',
-  marginLeft: '10px',
+  // uncomment with Cloudinary service implemented
+  // marginLeft: '10px',
 });
 
 export const PublishedDate = styled('div', {
@@ -73,4 +74,10 @@ export const PublishedDate = styled('div', {
 export const FooterWrapper = styled('div', {
   padding: '28px',
   borderTop: '1px solid #e0e0e0',
+});
+
+export const TempStyledImg = styled('img', {
+  width: '100%',
+  height: '210px',
+  objectFit: 'cover',
 });

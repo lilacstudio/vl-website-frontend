@@ -10,6 +10,7 @@ import {
   Description,
   FooterWrapper,
   PublishedDate,
+  TempStyledImg,
   TextWrapper,
   Title,
   Wrapper,
@@ -36,12 +37,9 @@ export function LatestArticle({
         <div>
           <Link href={`/articles/${slug}`}>
             <a>
-              <Image
+              <TempStyledImg
                 src={`${process.env.NEXT_PUBLIC_API_HOST}${articleImage.url}`}
-                height={articleImage.height}
-                width={articleImage.width}
                 alt={articleImage.alternativeText}
-                layout="responsive"
               />
             </a>
           </Link>
@@ -54,12 +52,15 @@ export function LatestArticle({
       </TextWrapper>
       <FooterWrapper>
         <AuthorBlock>
-          <Image
+          {/**
+           * Hide image until Cloudinary service is up to date.
+           * Currently these images are huge in Strapi and a waste of bandwidth
+          <img
             src={process.env.NEXT_PUBLIC_API_HOST + author.picture.url}
             width={30}
             height={30}
-            layout="fixed"
           />
+          */}
           <AuthorName>{author.name}</AuthorName>
         </AuthorBlock>
         <PublishedDate>{formattedPublishedAt}</PublishedDate>

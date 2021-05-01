@@ -22,7 +22,7 @@ export default function Home({
   return (
     <div>
       <Head>
-        <title>Create Next App</title>
+        <title>Vegan Lebanese</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link

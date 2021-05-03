@@ -6,6 +6,7 @@ module.exports = {
     path: '/_next/image',
     loader: 'default',
   },
+  trailingSlash: true,
   webpack: function (config) {
     config.externals = config.externals || {};
     config.externals['styletron-server'] = 'styletron-server';

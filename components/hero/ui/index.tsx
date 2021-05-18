@@ -1,4 +1,5 @@
 import { styled } from 'styletron-react';
+import { HeaderNavHeight } from '../../../styles/globals';
 
 export const Wrapper = styled('div', {
   alignItems: 'center',
@@ -16,6 +17,7 @@ export const Wrapper = styled('div', {
   height: '560px',
   justifyContent: 'center',
   marginBottom: '50px',
+  minHeight: `calc(100vh - ${HeaderNavHeight})`,
 });
 
 export const ItalicTitle = styled('h4', {

@@ -7,12 +7,14 @@ import { IArticle } from '../types';
 import { ArticleList } from '../components/article-list';
 import { Hero } from '../components/hero';
 import { styled } from 'styletron-react';
+import { Layout } from '../components/layout';
+import { Container } from '../components/atoms';
 
 const Main = styled('main', {
   display: 'flex',
   flexDirection: 'column',
   alignItems: 'flex-start',
-  maxWidth: '1080px',
+  maxWidth: '1200px',
   margin: '0 auto',
 });
 
@@ -20,18 +22,22 @@ export default function Home({
   articles,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
-    <div>
+    <Layout>
       <Head>
-        <title>Vegan Lebanese</title>
+        <title>Sydney's Best Vegan Lebanese Street Food Located in Bondi</title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link
           href="https://fonts.googleapis.com/css2?family=Raleway&family=Playfair+Display:ital@1&display=swap"
           rel="stylesheet"
         />
+        <meta
+          name="description"
+          content="We’re Australia’s First Vegan Lebanese Restaurant and we’re on a mission to re-define ‘fast food’ with ridiculously tasty (and healthy) Plant Based Lebanese food. "
+        />
       </Head>
 
-      <SiteHeader />
+      {/* <SiteHeader /> */}
       <Hero />
       <Main>
         <InfoSection
@@ -84,7 +90,7 @@ export default function Home({
           <ArticleList articles={articles.slice(0, 4)} />
         </InfoSection>
       </Main>
-    </div>
+    </Layout>
   );
 }
 

@@ -1,4 +1,4 @@
-import { styled } from 'styletron-react';
+import { styled } from '../../pages/_app';
 import { Tablet } from '../../styles/globals';
 
 export const P = styled('p', {
@@ -45,3 +45,27 @@ export const Footer = styled('footer', {
   display: 'flex',
   flexDirection: 'column',
 });
+
+export const BorderLink = styled('a', {
+  border: '2px solid black',
+  color: 'black',
+  display: 'block',
+  fontFamily: 'Raleway, sans-serif',
+  fontSize: '13px',
+  fontWeight: 700,
+  height: '45px',
+  letterSpacing: '1px',
+  lineHeight: '45px',
+  margin: '0 auto',
+  padding: '0 14px',
+  textAlign: 'center',
+  textDecoration: 'none',
+  textTransform: 'uppercase',
+  width: '180px',
+});
+
+export const Container = styled('div', ({ $theme }) => ({
+  padding: `${$theme.sizing[0]} ${$theme.sizing[4]}`,
+  maxWidth: '1200px',
+  margin: '0 auto',
+}));

@@ -7,19 +7,24 @@ import { Wrapper, Inner, PageHeader, PageTitle } from './ui';
 
 export type Props = {
   pageTitle?: string;
+  metaTitle?: string;
   children?: ReactNode;
   overrides?: StyleObject;
 };
 
 export const Layout: FunctionComponent<Props> = ({
   pageTitle,
+  metaTitle,
   overrides,
   children,
 }) => {
   return (
     <Wrapper $style={overrides}>
       <Head>
-        <title>Create Next App</title>
+        <title>
+          {metaTitle ||
+            `${pageTitle} - Sydney's Best Vegan Lebanese Street Food Located in Bondi`}
+        </title>
         <link rel="icon" href="/favicon.ico" />
         <link rel="preconnect" href="https://fonts.gstatic.com" />
         <link

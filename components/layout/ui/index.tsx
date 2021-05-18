@@ -5,11 +5,11 @@ export const Wrapper = styled('div', {});
 
 export const Inner = styled('div', {
   margin: '0 auto',
-  maxWidth: '768px',
-  width: '95%',
+  // maxWidth: '768px',
+  // width: '95%',
   padding: '70px 0',
   [Tablet]: {
-    width: '80%',
+    // width: '80%',
   },
 });
 

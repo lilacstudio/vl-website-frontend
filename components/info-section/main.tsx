@@ -1,6 +1,5 @@
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { StyleObject, useStyletron } from 'styletron-react';
 import { Separator } from '../separator';
 

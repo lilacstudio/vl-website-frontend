@@ -1,5 +1,7 @@
 import { InferGetStaticPropsType } from 'next';
+import React from 'react';
 import { ArticleList } from '../../components/article-list';
+import { Container } from '../../components/atoms';
 import { Layout } from '../../components/layout';
 import { IArticle } from '../../types';
 
@@ -20,7 +22,9 @@ export default function Articles({
 }: InferGetStaticPropsType<typeof getStaticProps>) {
   return (
     <Layout pageTitle={'Blog'} overrides={{ backgroundColor: '#f5f5f5' }}>
-      <ArticleList articles={articles} />
+      <Container>
+        <ArticleList articles={articles} />
+      </Container>
     </Layout>
   );
 }

@@ -1,6 +1,7 @@
 import { InferGetStaticPropsType } from 'next';
+import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import { A, H1, P } from '../../components/atoms';
+import { A, Container, H1, P } from '../../components/atoms';
 import { Layout } from '../../components/layout';
 import { IArticle } from '../../types';
 
@@ -42,15 +43,17 @@ export default function Article({
 
   return (
     <Layout pageTitle={article.title}>
-      <ReactMarkdown
-        skipHtml
-        children={article.content}
-        components={{
-          h1: 'h2',
-          p: P,
-          a: A,
-        }}
-      />
+      <Container>
+        <ReactMarkdown
+          skipHtml
+          children={article.content}
+          components={{
+            h1: 'h2',
+            p: P,
+            a: A,
+          }}
+        />
+      </Container>
     </Layout>
   );
 }

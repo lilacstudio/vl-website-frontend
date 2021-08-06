@@ -64,7 +64,8 @@ export const BorderLink = styled('a', {
   width: '180px',
 });
 
-export const Container = styled('div', ({ $theme }) => ({
+// @BUG $theme prop not properly typed
+export const Container = styled('div', ({ $theme }: { $theme: any }) => ({
   padding: `${$theme.sizing[0]} ${$theme.sizing[4]}`,
   maxWidth: '1200px',
   margin: '0 auto',

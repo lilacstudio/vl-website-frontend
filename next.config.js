@@ -1,4 +1,5 @@
-module.exports = {
+const { withPlaiceholder } = require('@plaiceholder/next');
+module.exports = withPlaiceholder({
   images: {
     deviceSizes: [640, 768, 1024, 1280, 1600],
     imageSizes: [16, 32, 48, 68, 96],
@@ -7,12 +8,9 @@ module.exports = {
     loader: 'default',
   },
   trailingSlash: true,
-  future: {
-    webpack5: true,
-  },
   webpack: function (config) {
     config.externals = config.externals || {};
     config.externals['styletron-server'] = 'styletron-server';
     return config;
   },
-};
+});

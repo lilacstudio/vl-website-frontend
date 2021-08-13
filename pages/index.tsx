@@ -8,11 +8,6 @@ import { Hero } from '../components/hero';
 import { styled } from 'styletron-react';
 import { Layout } from '../components/layout';
 
-import aboutUsImage from '../public/images/about-us-vegan-lebanese-street-food.jpeg';
-import healthyVeganImage from '../public/images/healthy-vegan-food-bondi-australia.jpeg';
-import ecoVeganImage from '../public/images/eco-vegan-lebanese-street-food.jpeg';
-import { getPlaiceholder } from 'plaiceholder';
-
 const Main = styled('main', {
   display: 'flex',
   flexDirection: 'column',
@@ -51,7 +46,7 @@ export default function Home({
             enviro-friendly lifestyle. Our mission is to make a positive
             impact on fast food as it stands today by providing fast and
             healthy vegan meals influenced by Lebanese food."
-          img={aboutUsImage}
+          imgUrl="/images/about-us-vegan-lebanese-street-food.jpeg"
           link="/about"
         />
         <InfoSection
@@ -64,7 +59,7 @@ export default function Home({
             future. Our bodies are our powerhouse, our home, and we only get one
             chance so let’s eat our way to a positive future—for our health, for
             our planet and for our animals."
-          img={healthyVeganImage}
+          imgUrl="/images/healthy-vegan-food-bondi-australia.jpeg"
           link="/about"
         />
         <InfoSection
@@ -77,7 +72,7 @@ export default function Home({
             towards a more sustainable future. Out of respect for our incredible
             and generous planet, we do not supply any ‘single-use’ plastic in our
             store. There is no Planet B after all."
-          img={ecoVeganImage}
+          imgUrl="/images/eco-vegan-lebanese-street-food.jpeg"
           link="/about"
         />
         <InfoSection
@@ -100,14 +95,7 @@ export const getStaticProps: GetStaticProps<{
   // get posts from our api
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/articles`);
   const articles: IArticle[] = await res.json();
-  const articlesWithImageBlur = articles.map(async (article) => {
-    const { base64, img } = await getPlaiceholder(
-      `${process.env.NEXT_PUBLIC_API_HOST}${article.image.url}`,
-    );
-    return { ...article, imageProps: { ...img, blurDataURL: base64 } };
-  });
-
   return {
-    props: { articles: await Promise.all(articlesWithImageBlur) },
+    props: { articles },
   };
 };

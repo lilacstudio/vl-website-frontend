@@ -1,5 +1,4 @@
 import moment from 'moment';
-import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react';
 import { IArticle } from '../../types';
@@ -10,6 +9,7 @@ import {
   Description,
   FooterWrapper,
   PublishedDate,
+  TempStyledImg,
   TextWrapper,
   Title,
   Wrapper,
@@ -18,25 +18,28 @@ import {
 export type Props = Pick<
   IArticle,
   'author' | 'publishedAt' | 'description' | 'title' | 'image' | 'slug'
-> & { imageProps: any };
+>;
 
 export function LatestArticle({
   title,
   author,
   description,
   publishedAt,
-  imageProps,
+  image: articleImage,
   slug,
 }: Props) {
   const formattedPublishedAt = moment(publishedAt).format('Do MMMM, YYYY');
 
   return (
     <Wrapper>
-      {imageProps && (
+      {articleImage && (
         <div>
           <Link href={`/articles/${slug}`}>
             <a>
-              <Image {...imageProps} placeholder="blur" alt={title} />
+              <TempStyledImg
+                src={`${process.env.NEXT_PUBLIC_API_HOST}${articleImage.url}`}
+                alt={articleImage.alternativeText}
+              />
             </a>
           </Link>
         </div>

@@ -55,7 +55,7 @@ export default function Article({
         <div style={{ marginBottom: '16px' }}>
           Back to <Link href="/articles">Articles</Link>
         </div>
-        <Image placeholder="blur" alt={article.title} {...imageProps} />
+        <Image alt={article.title} {...imageProps} />
         <ReactMarkdown
           skipHtml
           components={{

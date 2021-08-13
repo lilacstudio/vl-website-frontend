@@ -65,7 +65,7 @@ export function InfoSection({
             overflow: 'hidden',
           })}
         >
-          <Image placeholder="blur" src={img} alt={caption} />
+          <Image src={img} alt={caption} />
         </div>
       )}
       <Separator $transparent />

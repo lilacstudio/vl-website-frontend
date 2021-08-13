@@ -1,12 +1,12 @@
+/* eslint-disable @next/next/no-img-element */
 import { InferGetStaticPropsType } from 'next';
+import Link from 'next/link';
 import React from 'react';
 import ReactMarkdown from 'react-markdown';
-import Image from 'next/image';
-import { getPlaiceholder } from 'plaiceholder';
+import { useStyletron } from 'styletron-react';
 import { A, Container, P } from '../../components/atoms';
 import { Layout } from '../../components/layout';
 import { IArticle } from '../../types';
-import Link from 'next/link';
 
 export const getStaticPaths = async () => {
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/articles`);
@@ -32,30 +32,44 @@ export const getStaticProps = async ({ params }) => {
   const articles: IArticle[] = await res.json();
   const article = articles[0];
 
-  const { base64, img } = await getPlaiceholder(
-    `${process.env.NEXT_PUBLIC_API_HOST}${article.image.url}`,
-  );
-
   return {
-    props: { article, imageProps: { ...img, blurDataURL: base64 } },
+    props: { article },
   };
 };
 
 export default function Article({
   article,
-  imageProps,
 }: InferGetStaticPropsType<typeof getStaticProps>) {
+  const [css] = useStyletron();
+
   if (!article) {
     return <P>Article not found</P>;
   }
 
   return (
     <Layout pageTitle={article.title}>
-      <Container>
+      <Container className={css({ maxWidth: '680px' })}>
         <div style={{ marginBottom: '16px' }}>
           Back to <Link href="/articles">Articles</Link>
         </div>
-        <Image alt={article.title} {...imageProps} />
+        <div
+          className={css({
+            width: '100%',
+            maxHeight: '400px',
+            margin: 'auto',
+            overflow: 'hidden',
+          })}
+        >
+          <img
+            className={css({
+              objectFit: 'contain',
+              height: '100%',
+              width: '100%',
+            })}
+            alt={article.image.alternativeText}
+            src={process.env.NEXT_PUBLIC_API_HOST + article.image.url}
+          />
+        </div>
         <ReactMarkdown
           skipHtml
           components={{

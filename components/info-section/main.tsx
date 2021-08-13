@@ -1,6 +1,6 @@
+/* eslint-disable @next/next/no-img-element */
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { StyleObject, useStyletron } from 'styletron-react';
 import { Separator } from '../separator';
 
@@ -10,7 +10,7 @@ export type Props = {
   children?: ReactNode;
   link?: string;
   text?: string;
-  img?: any;
+  imgUrl?: string;
   customStyles?: StyleObject;
 };
 
@@ -20,7 +20,7 @@ export function InfoSection({
   text,
   children,
   link,
-  img,
+  imgUrl,
   customStyles,
 }: Props) {
   const [css] = useStyletron();
@@ -55,7 +55,7 @@ export function InfoSection({
       })}
     >
       <Separator $transparent />
-      {img && (
+      {imgUrl && (
         <div
           className={css({
             position: 'relative',
@@ -65,7 +65,7 @@ export function InfoSection({
             overflow: 'hidden',
           })}
         >
-          <Image src={img} alt={caption} />
+          <img src={imgUrl} alt={caption} />
         </div>
       )}
       <Separator $transparent />

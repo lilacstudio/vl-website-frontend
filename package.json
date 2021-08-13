@@ -9,33 +9,22 @@
     "export": "yarn build && next export -o _static"
   },
   "dependencies": {
-    "@plaiceholder/next": "^2.1.0",
     "moment": "^2.29.1",
-    "next": "^11.1.0",
-    "plaiceholder": "^2.0.1",
+    "next": "^12.0.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-markdown": "^6.0.3",
-    "sharp": "^0.28.3",
-    "styletron-engine-atomic": "^1.4.8",
-    "styletron-react": "^6.0.1",
-    "typescript": "^4.3.5"
+    "react-markdown": "^6.0.1",
+    "styletron-engine-atomic": "^1.4.7",
+    "styletron-react": "^6.0.2",
+    "typescript": "^4.2.4"
   },
   "devDependencies": {
-    "@next/eslint-plugin-next": "^11.1.0",
     "@types/moment": "^2.13.0",
-    "@types/node": "^14.14.37",
-    "@types/react": "^17.0.17",
-    "@types/styletron-engine-atomic": "^1.1.1",
-    "@types/styletron-react": "^5.0.3",
-    "@typescript-eslint/eslint-plugin": "^4.29.1",
-    "@typescript-eslint/parser": "^4.29.1",
-    "eslint": "^7.32.0",
-    "eslint-config-next": "^11.1.0",
-    "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
-    "eslint-plugin-react": "^7.24.0",
-    "eslint-plugin-react-hooks": "^4.2.0",
-    "prettier": "^2.3.2"
+    "@types/node": "^16.11.7",
+    "@types/react": "^17.0.3",
+    "@types/styletron-engine-atomic": "^1.1.0",
+    "@types/styletron-react": "^5.0.2",
+    "@typescript-eslint/eslint-plugin": "^4.22.1",
+    "@typescript-eslint/parser": "^4.22.1"
   }
 }

@@ -13,8 +13,7 @@ export interface IArticle {
   status: 'draft' | 'published';
   slug: string;
   category?: ICategory;
-  image?: any;
-  imageProps: any;
+  image: any;
   author?: IWriter;
 }
 

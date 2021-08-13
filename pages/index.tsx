@@ -2,13 +2,16 @@ import React from 'react';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import Head from 'next/head';
 import { InfoSection } from '../components/info-section';
-import { SiteHeader } from '../components/site-header';
 import { IArticle } from '../types';
 import { ArticleList } from '../components/article-list';
 import { Hero } from '../components/hero';
 import { styled } from 'styletron-react';
 import { Layout } from '../components/layout';
-import { Container } from '../components/atoms';
+
+import aboutUsImage from '../public/images/about-us-vegan-lebanese-street-food.jpeg';
+import healthyVeganImage from '../public/images/healthy-vegan-food-bondi-australia.jpeg';
+import ecoVeganImage from '../public/images/eco-vegan-lebanese-street-food.jpeg';
+import { getPlaiceholder } from 'plaiceholder';
 
 const Main = styled('main', {
   display: 'flex',
@@ -24,13 +27,10 @@ export default function Home({
   return (
     <Layout>
       <Head>
-        <title>Sydney's Best Vegan Lebanese Street Food Located in Bondi</title>
+        <title>
+          Sydney&apos;s Best Vegan Lebanese Street Food Located in Bondi
+        </title>
         <link rel="icon" href="/favicon.ico" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Raleway&family=Playfair+Display:ital@1&display=swap"
-          rel="stylesheet"
-        />
         <meta
           name="description"
           content="We’re Australia’s First Vegan Lebanese Restaurant and we’re on a mission to re-define ‘fast food’ with ridiculously tasty (and healthy) Plant Based Lebanese food. "
@@ -51,7 +51,7 @@ export default function Home({
             enviro-friendly lifestyle. Our mission is to make a positive
             impact on fast food as it stands today by providing fast and
             healthy vegan meals influenced by Lebanese food."
-          imgUrl="/images/about-us-vegan-lebanese-street-food.jpeg"
+          img={aboutUsImage}
           link="/about"
         />
         <InfoSection
@@ -64,7 +64,7 @@ export default function Home({
             future. Our bodies are our powerhouse, our home, and we only get one
             chance so let’s eat our way to a positive future—for our health, for
             our planet and for our animals."
-          imgUrl="/images/healthy-vegan-food-bondi-australia.jpeg"
+          img={healthyVeganImage}
           link="/about"
         />
         <InfoSection
@@ -77,7 +77,7 @@ export default function Home({
             towards a more sustainable future. Out of respect for our incredible
             and generous planet, we do not supply any ‘single-use’ plastic in our
             store. There is no Planet B after all."
-          imgUrl="/images/eco-vegan-lebanese-street-food.jpeg"
+          img={ecoVeganImage}
           link="/about"
         />
         <InfoSection
@@ -100,7 +100,14 @@ export const getStaticProps: GetStaticProps<{
   // get posts from our api
   const res = await fetch(`${process.env.NEXT_PUBLIC_API_HOST}/articles`);
   const articles: IArticle[] = await res.json();
+  const articlesWithImageBlur = articles.map(async (article) => {
+    const { base64, img } = await getPlaiceholder(
+      `${process.env.NEXT_PUBLIC_API_HOST}${article.image.url}`,
+    );
+    return { ...article, imageProps: { ...img, blurDataURL: base64 } };
+  });
+
   return {
-    props: { articles },
+    props: { articles: await Promise.all(articlesWithImageBlur) },
   };
 };

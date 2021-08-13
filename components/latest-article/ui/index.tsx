@@ -35,7 +35,7 @@ const TitleLink = styled('a', {
 
 export const Title = ({ slug, title }) => {
   return (
-    <Link href={`/articles/${slug}`}>
+    <Link href={`/articles/${slug}`} passHref>
       <TitleLink>
         <TitleText>{title}</TitleText>
       </TitleLink>

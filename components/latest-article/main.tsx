@@ -36,7 +36,7 @@ export function LatestArticle({
         <div>
           <Link href={`/articles/${slug}`}>
             <a>
-              <Image {...imageProps} placeholder="blur" />
+              <Image {...imageProps} placeholder="blur" alt={title} />
             </a>
           </Link>
         </div>

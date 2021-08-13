@@ -1,5 +1,6 @@
 import React, { ReactNode } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { StyleObject, useStyletron } from 'styletron-react';
 import { Separator } from '../separator';
 
@@ -9,7 +10,7 @@ export type Props = {
   children?: ReactNode;
   link?: string;
   text?: string;
-  imgUrl?: string;
+  img?: any;
   customStyles?: StyleObject;
 };
 
@@ -19,7 +20,7 @@ export function InfoSection({
   text,
   children,
   link,
-  imgUrl,
+  img,
   customStyles,
 }: Props) {
   const [css] = useStyletron();
@@ -54,7 +55,19 @@ export function InfoSection({
       })}
     >
       <Separator $transparent />
-      {imgUrl && <img src={imgUrl} className={css({ width: '100%' })} />}
+      {img && (
+        <div
+          className={css({
+            position: 'relative',
+            width: '100%',
+            height: 'auto',
+            maxHeight: '500px',
+            overflow: 'hidden',
+          })}
+        >
+          <Image placeholder="blur" src={img} alt={caption} />
+        </div>
+      )}
       <Separator $transparent />
       <h2
         className={css({

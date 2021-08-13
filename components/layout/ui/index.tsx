@@ -1,12 +1,12 @@
 import { styled } from 'styletron-react';
 import { Tablet } from '../../../styles/globals';
 
-export const Wrapper = styled('div', {});
+export const Wrapper = styled('div', {
+  minHeight: '100%',
+});
 
 export const Inner = styled('div', {
   margin: '0 auto',
-  // maxWidth: '768px',
-  // width: '95%',
   padding: '70px 0',
   [Tablet]: {
     // width: '80%',

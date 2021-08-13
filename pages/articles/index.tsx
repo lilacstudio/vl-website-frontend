@@ -1,5 +1,4 @@
 import { InferGetStaticPropsType } from 'next';
-import Link from 'next/link';
 import { getPlaiceholder } from 'plaiceholder';
 import React from 'react';
 import { ArticleList } from '../../components/article-list';

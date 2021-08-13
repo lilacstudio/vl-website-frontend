@@ -4,10 +4,10 @@ import { LatestArticle } from '../latest-article';
 import { Wrapper } from './ui/wrapper';
 
 export type Props = {
-  articles: IArticle[];
+  articles: Array<IArticle & { imageProps: any }>;
 };
 export const ArticleList = ({ articles }: Props) => {
-  function renderArticles(articles: IArticle[]) {
+  function renderArticles(articles: Props['articles']) {
     if (!articles || articles.length === 0) {
       return <p>No articles were found. Check back soon!</p>;
     }
@@ -17,7 +17,7 @@ export const ArticleList = ({ articles }: Props) => {
         title={article.title}
         author={article.author}
         description={article.description}
-        image={article.image}
+        imageProps={article.imageProps}
         publishedAt={article.publishedAt}
         slug={article.slug}
       />

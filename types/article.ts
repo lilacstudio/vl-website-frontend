@@ -10,9 +10,11 @@ export interface IArticle {
   description: string;
   content: string;
   publishedAt: Date;
-  status: "draft" | "published";
+  status: 'draft' | 'published';
   slug: string;
   category?: ICategory;
-  image: any;
+  image?: any;
+  imageProps: any;
   author?: IWriter;
 }
+

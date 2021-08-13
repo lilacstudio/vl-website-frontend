@@ -10,7 +10,6 @@ import {
   Description,
   FooterWrapper,
   PublishedDate,
-  TempStyledImg,
   TextWrapper,
   Title,
   Wrapper,
@@ -19,28 +18,25 @@ import {
 export type Props = Pick<
   IArticle,
   'author' | 'publishedAt' | 'description' | 'title' | 'image' | 'slug'
->;
+> & { imageProps: any };
 
 export function LatestArticle({
   title,
   author,
   description,
   publishedAt,
-  image: articleImage,
+  imageProps,
   slug,
 }: Props) {
   const formattedPublishedAt = moment(publishedAt).format('Do MMMM, YYYY');
 
   return (
     <Wrapper>
-      {articleImage && (
+      {imageProps && (
         <div>
           <Link href={`/articles/${slug}`}>
             <a>
-              <TempStyledImg
-                src={`${process.env.NEXT_PUBLIC_API_HOST}${articleImage.url}`}
-                alt={articleImage.alternativeText}
-              />
+              <Image {...imageProps} placeholder="blur" />
             </a>
           </Link>
         </div>

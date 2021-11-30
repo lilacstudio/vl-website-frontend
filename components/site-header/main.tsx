@@ -27,6 +27,10 @@ export function SiteHeader() {
             { title: 'Home', url: '/' },
             {
               title: 'Bondi Menu',
+              url: 'https://vegan-lebanese-bondi-beach.square.site/',
+            },
+            {
+              title: 'Delivery',
               url: 'https://order.online/business/vegan-lebanese-bondi-beach-623204',
             },
             {
